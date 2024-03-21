@@ -6,10 +6,9 @@ jobs:
     my_job:
         runs-on: ubuntu-latest
         steps:
-        - name: 
-            - name: Checkout code
-                uses: actions/checkout@v2
-        - name: Echo a message 1
+        - name: Checkout_code
+              uses: actions/checkout@v2
+        - name: Echo_a_message_1
             run: echo "Hello, Step1!"
-        - name: Echo a message
+        - name: Echo_a_message
             run: echo "Hello, Step2!"
