@@ -8,7 +8,7 @@ jobs:
         steps:
         - name: Checkout code
             uses: actions/checkout@v2
-        - name: Echo a message
+        - name: Echo a message 1
             run: echo "Hello, Step1!"
         - name: Echo a message
             run: echo "Hello, Step2!"
