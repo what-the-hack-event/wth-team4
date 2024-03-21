@@ -15,9 +15,8 @@ jobs:
   new_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Use cowsay action
-        uses: aslafy-z/cowsay-action@master
+      - name: Ship it
+        uses: mscoutermarsh/cowsays-action@master
         with:
-          text: "Hello, from cowsay!"
+          text: 'ship ship ship!'
+          color: 'red'
