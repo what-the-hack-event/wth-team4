@@ -1,1 +1,14 @@
+name: My first workflow
 
+on: [push, pull_request]
+
+jobs:
+    my_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout_code
+              uses: actions/checkout@v2
+        - name: Echo_a_message_1
+            run: echo "Hello, Step1!"
+        - name: Echo_a_message
+            run: echo "Hello, Step2!"
