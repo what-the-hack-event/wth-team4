@@ -2,6 +2,9 @@ name: First Workflow
 
 on:
     workflow_dispatch:
+    issues:
+        types:
+            - opened
 
 jobs:
     job1:
@@ -22,14 +25,3 @@ jobs:
           with:
             text: 'ship ship ship!'
             color: 'blue'
-
-    issue:
-      name: Issue Trigger
-      runs-on: ubuntu-latest
-      steps:
-        - name: Issue Created
-          uses: actions/github-script@v4
-          with:
-            github-token: ${{ secrets.GITHUB_TOKEN }}
-            script: |
-              console.log('Issue created:', context.payload.issue?.number)
