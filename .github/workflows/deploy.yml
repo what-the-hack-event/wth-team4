@@ -4,7 +4,7 @@ on:
     workflow_dispatch:
 
 env:
-    RESOURCE_GROUP: ${{ secrets.RESOURCE_GROUP }}
+    RESOURCE_GROUP: ${{ vars.RESOURCE_GROUP }}
 
 jobs:
     deploy:
