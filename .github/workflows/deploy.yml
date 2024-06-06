@@ -21,12 +21,7 @@ jobs:
               uses: azure/login@v1
               with:
                   creds: |
-                      {
-                          "client-id": "${{ secrets.CLIENT_ID }}",
-                          "client-secret": "${{ secrets.CLIENT_SECRET }}",
-                          "subscription-id": "${{ secrets.SUBSCRIPTION_ID }}",
-                          "tenant-id": "${{ secrets.TENANT_ID }}"
-                      }
+                        ${{ secrets.CRED }}
 
             - name: Deploy ARM template
               uses: azure/arm-deploy@v1
