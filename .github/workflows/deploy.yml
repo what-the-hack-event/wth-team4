@@ -1,0 +1,36 @@
+name: Azure Deployment
+
+on:
+    workflow_dispatch:
+
+env:
+    AZURE_SUBSCRIPTION_ID: <your-subscription-id>
+    AZURE_TENANT_ID: <your-tenant-id>
+    AZURE_CLIENT_ID: <your-client-id>
+    AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Login to Azure
+              uses: azure/login@v1
+              with:
+                  creds: |
+                      {
+                          "client-id": "${{ secrets.CLIENT_ID }}",
+                          "client-secret": "${{ secrets.CLIENT_SECRET }}",
+                          "subscription-id": "${{ secrets.SUBSCRIPTION_ID }}",
+                          "tenant-id": "${{ secrets.TENANT_ID }}"
+                      }
+
+            - name: Deploy ARM template
+              uses: azure/arm-deploy@v1
+              with:
+                  resourceGroupName: <your-resource-group-name>
+                  template: <path-to-your-bicep-template>
+                  parameters: <path-to-your-parameters-file>
