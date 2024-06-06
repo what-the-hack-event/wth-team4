@@ -25,4 +25,4 @@ jobs:
               with:
                   resourceGroupName: ${{ env.RESOURCE_GROUP }}
                   template: ./InfrastructureAsCode/main.bicep
-                  parameters: workspaces/wth-team4/InfrastructureAsCode/parameters.json
+                  parameters: environment=dev
