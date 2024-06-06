@@ -2,7 +2,11 @@ name: Azure Deployment
 
 on:
     workflow_dispatch:
-
+        inputs:
+            environment:
+                description: 'Environment'
+                required: true
+                default: 'dev'
 env:
     RESOURCE_GROUP: ${{ vars.RESOURCE_GROUP }}
 
