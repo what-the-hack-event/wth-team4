@@ -7,11 +7,11 @@ on:
                 description: 'Environment'
                 required: true
                 default: 'dev'
-                type: string
+                type: choice
                 options:
                   - dev
-                  - staging
-                  - production
+                  - test
+                  - prod
 env:
     RESOURCE_GROUP: ${{ vars.RESOURCE_GROUP }}
 
