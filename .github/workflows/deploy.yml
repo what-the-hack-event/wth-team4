@@ -4,7 +4,6 @@ on:
     workflow_dispatch:
 
 env:
-    CREDENTIALS: ${{ secrets.CRED }},
     RESOURCE_GROUP: ${{ secrets.RESOURCE_GROUP }}
 
 jobs:
@@ -19,7 +18,7 @@ jobs:
               uses: azure/login@v1
               with:
                   creds: |
-                        ${{ env.CREDENTIALS }}
+                        ${{ secrets.CRED }}
 
             - name: Deploy ARM template
               uses: azure/arm-deploy@v1
