@@ -1,9 +1,7 @@
 name: First Workflow
 
 on:
-    push:
-        branches:
-            - main
+    workflow_dispatch:
 
 jobs:
     job1:
@@ -34,4 +32,4 @@ jobs:
           with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
             script: |
-              console.log('Issue created:', context.payload.issue.number)
+              console.log('Issue created:', context.payload.issue?.number)
