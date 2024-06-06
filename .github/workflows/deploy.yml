@@ -4,10 +4,8 @@ on:
     workflow_dispatch:
 
 env:
-    AZURE_SUBSCRIPTION_ID: <your-subscription-id>
-    AZURE_TENANT_ID: <your-tenant-id>
-    AZURE_CLIENT_ID: <your-client-id>
-    AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+    CREDENTIALS: ${{ secrets.CRED }},
+    RESOURCE_GROUP: ${{ secrets.RESOURCE_GROUP }}
 
 jobs:
     deploy:
@@ -21,11 +19,11 @@ jobs:
               uses: azure/login@v1
               with:
                   creds: |
-                        ${{ secrets.CRED }}
+                        ${{ env.CREDENTIALS }}
 
             - name: Deploy ARM template
               uses: azure/arm-deploy@v1
               with:
-                  resourceGroupName: <your-resource-group-name>
-                  template: <path-to-your-bicep-template>
-                  parameters: <path-to-your-parameters-file>
+                  resourceGroupName: ${{ env.RESOURCE_GROUP }}
+                  template: '/workspaces/wth-team4/InfrastructureAsCode/main.bicep'
+                  parameters: '/workspaces/wth-team4/InfrastructureAsCode/parameters.json'
